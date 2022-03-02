@@ -41,7 +41,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun fieldsValidationToCheckAllFieldsAreEntered(): Boolean {
-        print(binding.addressET.text.toString().trim().isEmpty())
         if ((binding.userNameET.text.toString().trim()
                 .isEmpty()) || (binding.emailET.text.toString().trim().isEmpty()) ||
             (binding.phoneNumberET.text.toString().trim().isEmpty()) || (binding.pinCodeET.text.toString()
