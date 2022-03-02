@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">User Info</string>
+    <string name="app_name">USER INFO</string>
+    <string name="details_form">Employee Details Form</string>
+    <string name="user_name_text_view">User Name</string>
+    <string name="email_text_view">Email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="pin_code">Pin Code</string>
+    <string name="address">Address</string>
+    <string name="validate">Validate</string>
+    <string name="confirmData">Confirm</string>
+    <string name="cancelData">Cancel</string>
+    <string name="details">Employee Details</string>
 </resources>
