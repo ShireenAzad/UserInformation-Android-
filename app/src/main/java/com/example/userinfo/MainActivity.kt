@@ -1,28 +1,32 @@
 package com.example.userinfo
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.example.userinfo.databinding.ActivityMainBinding
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity() : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     var visibleFieldsCheck: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+         val userName = binding.userNameET.text.toString().trim()
+        val email = binding.emailET.text.toString().trim()
+        val phoneNumber = binding.phoneNumberET.text.toString().trim()
+        val pinCode = binding.pinCodeET.text.toString().trim()
+        val address = binding.addressET.text.toString().trim()
         binding.validate.setOnClickListener {
-            if (fieldsValidationToCheckAllFieldsAreEntered() && emailValidation() && phoneNumberValidation() && pinCodeValidation()) {
-                binding.validUserName.setText(binding.userNameET.text.toString())
-                binding.validEmail.setText(binding.emailET.text.toString())
-                binding.validPhoneNumber.setText(binding.phoneNumberET.text.toString())
-                binding.validPinCode.setText(binding.pinCodeET.text.toString())
-                binding.validAddress.setText(binding.addressET.text.toString())
+            if (fieldsValidationToCheckAllFieldsAreEntered(userName,email,phoneNumber,pinCode,address) && emailValidation(email) && phoneNumberValidation(phoneNumber) && pinCodeValidation(pinCode)) {
+                binding.validUserName.setText(userName)
+                binding.validEmail.setText(email)
+                binding.validPhoneNumber.setText(phoneNumber)
+                binding.validPinCode.setText(pinCode)
+                binding.validAddress.setText(address)
                 visibleFieldsCheck = true
                 fieldsDisplayOnValidate(visibleFieldsCheck)
                 binding.confirm.setOnClickListener {
@@ -40,13 +44,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun fieldsValidationToCheckAllFieldsAreEntered(): Boolean {
-        if ((binding.userNameET.text.toString().trim()
-                .isEmpty()) || (binding.emailET.text.toString().trim().isEmpty()) ||
-            (binding.phoneNumberET.text.toString().trim().isEmpty()) || (binding.pinCodeET.text.toString()
-                .trim().isEmpty()) ||
-            (binding.addressET.text.toString().trim().isEmpty())
-        ) {
+   fun fieldsValidationToCheckAllFieldsAreEntered(userName:String,email: String,phone: String,pinCode: String,address:String): Boolean {
+        if ((userName.isEmpty()) || (email.isEmpty()) || (phone.isEmpty()) || (pinCode.isEmpty()) || (address.isEmpty())) {
             Toast.makeText(this, "Every field is mandatory", Toast.LENGTH_LONG).show()
             return false
 
@@ -55,8 +54,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun phoneNumberValidation(): Boolean {
-        if (binding.phoneNumberET.text.toString().length == 10) {
+     fun phoneNumberValidation(phone:String): Boolean {
+        if (phone.length == 10) {
             return true
         } else {
             Toast.makeText(this, "Phone number ( should be only length of 10) ", Toast.LENGTH_LONG)
@@ -65,8 +64,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun pinCodeValidation(): Boolean {
-        if (binding.pinCodeET.text.toString().length == 6) {
+     fun pinCodeValidation(pinCode:String): Boolean {
+        if (pinCode.length == 6) {
             return true
         } else {
             Toast.makeText(this, "Pin code ( should be only length of 6) ", Toast.LENGTH_LONG)
@@ -75,9 +74,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun emailValidation(): Boolean {
-        if ((binding.emailET.text.toString().contains("@")) && ((binding.emailET.text.toString()
-                .endsWith(".com")) || (binding.emailET.text.toString().endsWith("co.in")))
+    fun emailValidation(email: String): Boolean {
+        if ((email.contains("@")) && ((email.endsWith(".com")) || (email.endsWith("co.in")))
         ) {
             return true
         } else {

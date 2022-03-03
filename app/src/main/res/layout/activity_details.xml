@@ -6,39 +6,37 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical">
-
-    <TextView
-
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:id="@+id/details"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="@string/details"
-        />
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/userName"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="300dp"
-        android:background="@drawable/custom_edit"
-        android:elevation="6dp"
-        android:inputType="textMultiLine"
-        android:paddingStart="10dp"
-        android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@+id/details"
-        tools:layout_editor_absoluteX="68dp" />
+        <TextView
+            android:id="@+id/details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/details"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="300dp"
+            android:background="@drawable/custom_edit"
+            android:elevation="6dp"
+            android:inputType="textMultiLine"
+            android:paddingStart="10dp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/details"
+            tools:layout_editor_absoluteX="68dp" />
 
 
-</LinearLayout>
+    </LinearLayout>
 </ScrollView>
