@@ -23,17 +23,15 @@ class MainActivity() : AppCompatActivity() {
             val phone = binding.phoneNumberET.text.toString().trim()
             val pinCode = binding.pinCodeET.text.toString().trim()
             val address = binding.addressET.text.toString().trim()
-            binding.textGroup.visibility = View.VISIBLE
-            binding.editGroup.visibility = View.INVISIBLE
-
-            if (fieldsValidationToCheckAllFieldsAreEntered(
-                    userName,
-                    email,
-                    phone,
-                    pinCode,
-                    address
-                )
-            ) {
+            binding.textGroup.visibility = View.INVISIBLE
+            binding.editGroup.visibility = View.VISIBLE
+            val validations = Validations()
+            val fieldsValidationToCheckAllFieldsAreEntered = validations.fieldsValidationToCheckAllFieldsAreEntered(this, userName, email, phone, pinCode, address, "Every field is mandatory")
+            val emailValidation = validations.emailValidation(this, email, "Email should have @ and .com or co.in")
+            val phoneNumberValidation = validations.phoneNumberValidation(this, phone, "Phone number ( should be only length of 10)")
+            val pinCodeValidation = validations.pinCodeValidation(this, pinCode, "Pin code ( should be only length of 6) ")
+            val validationResult = fieldsValidationToCheckAllFieldsAreEntered && emailValidation && phoneNumberValidation && pinCodeValidation
+            if (validationResult) {
                 binding.validUserName.setText(userName)
                 binding.validEmail.setText(email)
                 binding.validPhoneNumber.setText(phone)
@@ -55,52 +53,6 @@ class MainActivity() : AppCompatActivity() {
         }
     }
 
-    fun fieldsValidationToCheckAllFieldsAreEntered(
-        userName: String,
-        email: String,
-        phone: String,
-        pinCode: String,
-        address: String
-    ): Boolean {
-        if ((userName.isEmpty()) || (email.isEmpty()) || (phone.isEmpty()) || (pinCode.isEmpty()) || (address.isEmpty())) {
-            Toast.makeText(this, "Every field is mandatory", Toast.LENGTH_LONG).show()
-            return false
-
-        } else {
-            return true
-        }
-    }
-
-    fun phoneNumberValidation(phone: String): Boolean {
-        if (phone.length == 10) {
-            return true
-        } else {
-            Toast.makeText(this, "Phone number ( should be only length of 10) ", Toast.LENGTH_LONG)
-                .show()
-            return false
-        }
-    }
-
-    fun pinCodeValidation(pinCode: String): Boolean {
-        if (pinCode.length == 6) {
-            return true
-        } else {
-            val toastMessages = ToastMessages()
-            toastMessages.showToast(applicationContext,"Pin code should be of length 6")
-            return false
-        }
-    }
-
-    fun emailValidation(email: String): Boolean {
-        if ((email.contains("@")) && ((email.endsWith(".com")) || (email.endsWith("co.in")))
-        ) {
-            return true
-        } else {
-            Toast.makeText(this, " Email should have @ and .com or co.in", Toast.LENGTH_LONG).show()
-            return false
-        }
-    }
-
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putString(USERNAME, binding.validUserName.text.toString())
@@ -112,14 +64,11 @@ class MainActivity() : AppCompatActivity() {
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-
-        println(savedInstanceState.getBoolean(VISIBLE))
-        if(savedInstanceState.getBoolean(VISIBLE)) {
+        if (savedInstanceState.getBoolean(VISIBLE)) {
 
             binding.textGroup.visibility = View.INVISIBLE
             binding.editGroup.visibility = View.VISIBLE
-        }
-        else{
+        } else {
             binding.textGroup.visibility = View.VISIBLE
             binding.editGroup.visibility = View.INVISIBLE
             binding.validUserName.setText(savedInstanceState.getString(USERNAME))
@@ -131,16 +80,12 @@ class MainActivity() : AppCompatActivity() {
                 dataPassingFromActivityToActivityOnConfirm()
             }
             binding.cancel.setOnClickListener {
-
                 binding.textGroup.visibility = View.INVISIBLE
                 binding.editGroup.visibility = View.VISIBLE
             }
-
         }
         super.onRestoreInstanceState(savedInstanceState)
-
     }
-
 
     private fun dataPassingFromActivityToActivityOnConfirm() {
         val intent = Intent(this, DetailsActivity::class.java)
