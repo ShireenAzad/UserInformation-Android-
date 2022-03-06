@@ -207,7 +207,6 @@
             app:layout_constraintTop_toBottomOf="@+id/pinCode" />
 
         <TextView
-
             android:id="@+id/validAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
