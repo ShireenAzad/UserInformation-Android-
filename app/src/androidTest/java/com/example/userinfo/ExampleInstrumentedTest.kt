@@ -5,6 +5,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.action.ScrollToAction
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
@@ -31,49 +32,51 @@ import org.junit.Rule
 class ExampleInstrumentedTest {
     @get:Rule
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
+
     @Test
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.example.userinfo", appContext.packageName)
     }
+
     @Test
-    fun validatingData(){
-        Espresso.onView(withId(R.id.userNameET)).perform(ViewActions.typeText("Shireen"))
-        Espresso.onView(withId(R.id.emailET)).perform(ViewActions.typeText("ShireenAzad@gmail.com"))
-        Espresso.onView(withId(R.id.phoneNumberET)).perform(ScrollToAction()).perform(ViewActions.typeText("8790103730"))
-        Espresso.onView(withId(R.id.pinCodeET)).perform(ScrollToAction()).perform(ViewActions.typeText("516008"))
-        Espresso.onView(withId(R.id.addressET)).perform(ScrollToAction()).perform(ViewActions.typeText("balaji nagar,guntur"))
-
-        Espresso.onView(withId(R.id.validate)).perform(ScrollToAction()).perform(ViewActions.click())
-        Espresso.onView(withId(R.id.userNameET))
-            .check(ViewAssertions.matches(ViewMatchers.withText("Shireen")))
-
-        Espresso.onView(withId(R.id.emailET))
-            .check(ViewAssertions.matches(ViewMatchers.withText("ShireenAzad@gmail.com")))
-        Espresso.onView(withId(R.id.phoneNumberET))
-            .check(ViewAssertions.matches(ViewMatchers.withText("8790103730")))
-
-        Espresso.onView(withId(R.id.pinCodeET))
-            .check(ViewAssertions.matches(ViewMatchers.withText("516008")))
-
-        Espresso.onView(withId(R.id.addressET))
-            .check(ViewAssertions.matches(ViewMatchers.withText("balaji nagar,guntur")))
+    fun validatingData() {
+        onView(withId(R.id.userNameET)).perform(ViewActions.typeText("Shireen"))
+        onView(withId(R.id.emailET)).perform(ViewActions.typeText("ShireenAzad@gmail.com"))
+        onView(withId(R.id.phoneNumberET)).perform(ScrollToAction())
+            .perform(ViewActions.typeText("8790103730"))
+        onView(withId(R.id.pinCodeET)).perform(ScrollToAction())
+            .perform(ViewActions.typeText("516008"))
+        onView(withId(R.id.addressET)).perform(ScrollToAction())
+            .perform(ViewActions.typeText("balaji nagar,guntur"))
+        onView(withId(R.id.validate)).perform(ScrollToAction()).perform(ViewActions.click())
+        onView(withId(R.id.validUserName)).check(ViewAssertions.matches(ViewMatchers.withText("Shireen")))
+        onView(withId(R.id.validEmail)).check(ViewAssertions.matches(ViewMatchers.withText("ShireenAzad@gmail.com")))
+        onView(withId(R.id.validPhoneNumber)).check(ViewAssertions.matches(ViewMatchers.withText("8790103730")))
+        onView(withId(R.id.validPinCode)).check(ViewAssertions.matches(ViewMatchers.withText("516008")))
+        onView(withId(R.id.validAddress)).check(ViewAssertions.matches(ViewMatchers.withText("balaji nagar,guntur")))
 
     }
-@Test
-    fun validateData() {
-    onView(withId(R.id.userNameET)).perform(ViewActions.typeText("Shireen"))
-    onView(withId(R.id.emailET)).perform(ViewActions.typeText("ShireenAzad@gmail.com"))
-   onView(withId(R.id.phoneNumberET)).perform(ScrollToAction())
-        .perform(ViewActions.typeText("8790103730"))
-    onView(withId(R.id.pinCodeET)).perform(ScrollToAction())
-        .perform(ViewActions.typeText("516008"))
- onView(withId(R.id.addressET)).perform(ScrollToAction())
-        .perform(ViewActions.typeText("balaji nagar,guntur"))
 
-   onView(withId(R.id.validate)).perform(ScrollToAction()).perform(ViewActions.click())
-  onView(withId(R.id.validUserName))
-        .check(ViewAssertions.matches(ViewMatchers.withText("")))
-}
+    @Test
+    fun validateData() {
+        onView(withId(R.id.userNameET)).perform(ViewActions.typeText("Shireen"))
+        onView(withId(R.id.emailET)).perform(ViewActions.typeText("ShireenAzad@gmail.com"))
+        onView(withId(R.id.phoneNumberET)).perform(ScrollToAction())
+            .perform(ViewActions.typeText("8790103730"))
+        onView(withId(R.id.pinCodeET)).perform(ScrollToAction())
+            .perform(ViewActions.typeText("516008"))
+        onView(withId(R.id.addressET)).perform(ScrollToAction())
+            .perform(ViewActions.typeText("balaji nagar,guntur"))
+        onView(withId(R.id.validate)).perform(ScrollToAction()).perform(ViewActions.click())
+        onView(withId(R.id.validUserName)).check(ViewAssertions.matches(ViewMatchers.withText("Shireen")))
+        onView(withId(R.id.validEmail)).check(ViewAssertions.matches(ViewMatchers.withText("ShireenAzad@gmail.com")))
+        onView(withId(R.id.validPhoneNumber)).check(ViewAssertions.matches(ViewMatchers.withText("8790103730")))
+        onView(withId(R.id.validPinCode)).check(ViewAssertions.matches(ViewMatchers.withText("516008")))
+        onView(withId(R.id.validAddress)).check(ViewAssertions.matches(ViewMatchers.withText("balaji nagar,guntur")))
+        onView(withId(R.id.confirm)).perform(ViewActions.click())
+        onView(withId(R.id.userDetails)).check(ViewAssertions.matches(withText("Hi Shireen,How are you? Are you staying at balaji nagar,guntur 516008. I am not able to contact you on 8790103730. Can I email you the details at ShireenAzad@gmail.com")))
+
+    }
 }

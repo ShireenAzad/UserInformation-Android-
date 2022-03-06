@@ -18,6 +18,8 @@ class MainActivityTest {
 
     @MockK
     private lateinit var mainActivity: MainActivity
+    @MockK
+    private lateinit var validations:Validations
 
     @get:Rule
     var rule: TestRule = InstantTaskExecutorRule()
@@ -26,39 +28,35 @@ class MainActivityTest {
     fun setUp() {
 
         mainActivity = MainActivity()
+        validations = Validations()
 
     }
 
 
     @Test
     fun isEmailValid() {
-        assertTrue(mainActivity.emailValidation("shireen@gmail.com"))
+
+        assertTrue(validations.emailValidation(mainActivity,"shireen@gmail.com","Email should have @ and .com or co.in"))
     }
 
     @Test
     fun isPhoneNumberValid() {
-        assertTrue(mainActivity.phoneNumberValidation("8790103730"))
+        assertTrue(validations.phoneNumberValidation(mainActivity,"8790103730","Phone number ( should be only length of 10)"))
     }
 
     @Test
     fun isPinCodeValid() {
-        assertTrue(mainActivity.pinCodeValidation("516004"))
+        assertTrue(validations.pinCodeValidation(mainActivity,"516004","Pin code ( should be only length of 6) "))
     }
-    @Test
-    fun isPinCodeInValid() {
-        println(mainActivity.pinCodeValidation("51600"))
-        assertTrue(mainActivity.pinCodeValidation("51600"))
-    }
-
     @Test
     fun isAllFieldsEntered() {
         assertTrue(
-            mainActivity.fieldsValidationToCheckAllFieldsAreEntered(
+            validations.fieldsValidationToCheckAllFieldsAreEntered(mainActivity,
                 "Banu",
                 "banu@gmail.com",
                 "8790103730",
                 "516004",
-                "1/1534-1,yerramukka palli,kadapa"
+                "1/1534-1,yerramukka palli,kadapa","Every field is mandatory"
             )
         )
     }
