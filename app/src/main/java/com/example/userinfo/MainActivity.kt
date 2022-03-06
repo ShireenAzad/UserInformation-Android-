@@ -15,7 +15,6 @@ class MainActivity() : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.textGroup.visibility = View.INVISIBLE
-        binding.editGroup.visibility = View.VISIBLE
         binding.validate.setOnClickListener {
             val userName = binding.userNameET.text.toString().trim()
             val email = binding.emailET.text.toString().trim()
@@ -33,7 +32,6 @@ class MainActivity() : AppCompatActivity() {
                 binding.textGroup.visibility = View.VISIBLE
                 binding.editGroup.visibility = View.INVISIBLE
                 binding.confirm.setOnClickListener {
-
                     dataPassingFromActivityToActivityOnConfirm(
                         userName,
                         email,
@@ -44,8 +42,7 @@ class MainActivity() : AppCompatActivity() {
                 }
                 binding.cancel.setOnClickListener {
                     binding.editGroup.visibility = View.VISIBLE
-                    binding.textGroup.visibility = View.INVISIBLE
-
+                    binding.editGroup.visibility = View.INVISIBLE
                 }
             }
 
@@ -63,29 +60,23 @@ class MainActivity() : AppCompatActivity() {
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        if (savedInstanceState.getBoolean(VISIBLE)) {
-
-            binding.textGroup.visibility = View.INVISIBLE
-            binding.editGroup.visibility = View.VISIBLE
-        } else {
-            binding.textGroup.visibility = View.VISIBLE
-            binding.editGroup.visibility = View.INVISIBLE
-            binding.validUserName.setText(savedInstanceState.getString(USERNAME))
-            binding.validEmail.setText(savedInstanceState.getString(EMAIL))
-            binding.validPhoneNumber.setText(savedInstanceState.getString(PHONENUMBER))
-            binding.validPinCode.setText(savedInstanceState.getString(PINCODE))
-            binding.validAddress.setText(savedInstanceState.getString(ADDRESS))
-            binding.confirm.setOnClickListener {
-                dataPassingFromActivityToActivityOnConfirm(
-                    USERNAME, EMAIL, PHONENUMBER, PINCODE,
-                    ADDRESS
-                )
-            }
-            binding.cancel.setOnClickListener {
-                binding.textGroup.visibility = View.INVISIBLE
-                binding.editGroup.visibility = View.VISIBLE
-            }
+        binding.validUserName.setText(savedInstanceState.getString(USERNAME))
+        binding.validEmail.setText(savedInstanceState.getString(EMAIL))
+        binding.validPhoneNumber.setText(savedInstanceState.getString(PHONENUMBER))
+        binding.validPinCode.setText(savedInstanceState.getString(PINCODE))
+        binding.validAddress.setText(savedInstanceState.getString(ADDRESS))
+        visibileFields(savedInstanceState.getBoolean(VISIBLE))
+        binding.confirm.setOnClickListener {
+            dataPassingFromActivityToActivityOnConfirm(
+                USERNAME, EMAIL, PHONENUMBER, PINCODE,
+                ADDRESS
+            )
         }
+        binding.cancel.setOnClickListener {
+            binding.editGroup.visibility = View.VISIBLE
+            binding.editGroup.visibility = View.INVISIBLE
+        }
+
         super.onRestoreInstanceState(savedInstanceState)
     }
 
@@ -134,4 +125,16 @@ class MainActivity() : AppCompatActivity() {
         return validationResult
 
     }
+
+    fun visibileFields(visible: Boolean) {
+        if (visible) {
+            binding.textGroup.visibility = View.INVISIBLE
+            binding.editGroup.visibility = View.VISIBLE
+        } else {
+            binding.textGroup.visibility = View.VISIBLE
+            binding.editGroup.visibility = View.INVISIBLE
+        }
+
+    }
+
 }
