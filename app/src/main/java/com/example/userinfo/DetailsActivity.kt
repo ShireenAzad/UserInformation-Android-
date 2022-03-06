@@ -9,9 +9,9 @@ class DetailsActivity:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
+        val user = intent.getParcelableExtra<User>("user")
         val userName=findViewById<TextView>(R.id.userName)
-        userName.setText("Hi "+intent.getStringExtra(USERNAME).toString() +", How are you? Are you staying at "+intent.getStringExtra(
-            ADDRESS).toString()+intent.getStringExtra(PINCODE).toString()+". I am not able to contact you on "+intent.getStringExtra(
-            PHONENUMBER).toString()+". Can I email you the details at "+intent.getStringExtra(EMAIL).toString())
+        userName.setText("Hi "+user?.userName +", How are you? Are you staying at "+user?.address+user?.pinCode+". I am not able to contact you on "+user?.phoneNumber+
+                ". Can I email you the details at "+user?.email)
     }
 }
