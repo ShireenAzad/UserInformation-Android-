@@ -16,10 +16,10 @@ class DetailsActivity : AppCompatActivity() {
         binding.userDetails.text = getString(
             R.string.userData,
             user?.userName,
-            user?.email,
-            user?.phoneNumber,
+            user?.address,
             user?.pinCode,
-            user?.address
+            user?.phoneNumber,
+            user?.email
         )
     }
 }

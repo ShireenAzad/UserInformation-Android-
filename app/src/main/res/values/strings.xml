@@ -10,6 +10,6 @@
     <string name="confirmData">Confirm</string>
     <string name="cancelData">Cancel</string>
     <string name="details">Employee Details</string>
-    <string name="userData">"Hi "%1s ", How are you? Are you staying at "%2s %3s". I am not able to contact you on " %4s
-                ". Can I email you the details at " %5s</string>
+    <string name="userData"> Hi %1s,How are you? Are you staying at %2s %3s. I am not able to contact you on %4s. Can I email you the details at  %5s
+</string>
 </resources>
