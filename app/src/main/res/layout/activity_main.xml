@@ -85,7 +85,6 @@
             app:layout_constraintTop_toBottomOf="@+id/emailET" />
 
         <EditText
-            android:maxLength="10"
             android:id="@+id/phoneNumberET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -97,6 +96,7 @@
             android:drawablePadding="4dp"
             android:elevation="6dp"
             android:inputType="number"
+            android:maxLength="10"
             android:paddingStart="8dp"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
@@ -111,7 +111,6 @@
             app:layout_constraintTop_toBottomOf="@+id/phoneNumberET" />
 
         <EditText
-            android:maxLength="6"
             android:id="@+id/pinCodeET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -123,6 +122,7 @@
             android:drawablePadding="4dp"
             android:elevation="6dp"
             android:inputType="number"
+            android:maxLength="6"
             android:paddingStart="8dp"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/pinCode" />
@@ -162,64 +162,60 @@
             app:layout_constraintTop_toBottomOf="@+id/addressET" />
 
 
-
         <TextView
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="10dp"
-            android:textColor="@color/black"
             android:id="@+id/validUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@+id/userNameTV" />
-
-        <TextView
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
             android:textColor="@color/black"
+
+            app:layout_constraintTop_toBottomOf="@+id/userNameTV" />
+
+        <TextView
             android:id="@+id/validEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black"
+
             app:layout_constraintTop_toBottomOf="@+id/email" />
 
 
         <TextView
+            android:id="@+id/validPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
             android:textColor="@color/black"
-            android:id="@+id/validPhoneNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
 
 
         <TextView
+            android:id="@+id/validPinCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
             android:textColor="@color/black"
-            android:id="@+id/validPinCode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@+id/pinCode" />
 
         <TextView
 
+            android:id="@+id/validAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
             android:textColor="@color/black"
 
-            android:id="@+id/validAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@+id/address" />
 
 
@@ -229,7 +225,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/confirmData"
-            android:visibility="gone"
+
             app:layout_constraintTop_toBottomOf="@+id/validAddress" />
 
         <Button
@@ -238,9 +234,19 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/cancelData"
-            android:visibility="gone"
+
             app:layout_constraintTop_toBottomOf="@+id/confirm" />
 
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/editGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="emailET,userNameET,phoneNumberET,pinCodeET,addressET,validate" />
 
+        <androidx.constraintlayout.widget.Group
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textGroup"
+            app:constraint_referenced_ids="validUserName,validEmail,validPhoneNumber,validPinCode,validAddress,confirm,cancel" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
