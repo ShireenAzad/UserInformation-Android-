@@ -28,7 +28,7 @@
             android:id="@+id/userNameTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="@dimen/headingTop"
             android:text="@string/user_name_text_view"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/textView"
@@ -38,15 +38,15 @@
             android:id="@+id/userNameET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="@dimen/left"
+            android:layout_marginTop="@dimen/editTop"
+            android:layout_marginRight="@dimen/right"
             android:background="@drawable/custom_edit"
             android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 "
             android:drawableStart="@drawable/user"
-            android:drawablePadding="4dp"
-            android:elevation="6dp"
-            android:paddingStart="8dp"
+            android:drawablePadding="@dimen/padding"
+            android:elevation="@dimen/elevation"
+            android:paddingStart="@dimen/paddingStart"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/userNameTV" />
 
@@ -54,7 +54,7 @@
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/btnTop"
             android:text="@string/email_text_view"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/userNameET" />
@@ -63,15 +63,15 @@
             android:id="@+id/emailET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="@dimen/left"
+            android:layout_marginTop="@dimen/editTop"
+            android:layout_marginRight="@dimen/right"
             android:background="@drawable/custom_edit"
             android:drawableStart="@drawable/email"
-            android:drawablePadding="4dp"
-            android:elevation="6dp"
+            android:drawablePadding="@dimen/padding"
+            android:elevation="@dimen/elevation"
             android:inputType="textEmailAddress"
-            android:paddingStart="8dp"
+            android:paddingStart="@dimen/paddingStart"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/email" />
 
@@ -79,7 +79,7 @@
             android:id="@+id/phoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/btnTop"
             android:text="@string/phone_number"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/emailET" />
@@ -88,16 +88,16 @@
             android:id="@+id/phoneNumberET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="@dimen/left"
+            android:layout_marginTop="@dimen/editTop"
+            android:layout_marginRight="@dimen/right"
             android:background="@drawable/custom_edit"
             android:drawableStart="@drawable/phone"
-            android:drawablePadding="4dp"
-            android:elevation="6dp"
+            android:drawablePadding="@dimen/padding"
+            android:elevation="@dimen/elevation"
             android:inputType="number"
             android:maxLength="10"
-            android:paddingStart="8dp"
+            android:paddingStart="@dimen/paddingStart"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
 
@@ -105,7 +105,7 @@
             android:id="@+id/pinCode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/btnTop"
             android:text="@string/pin_code"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/phoneNumberET" />
@@ -114,16 +114,16 @@
             android:id="@+id/pinCodeET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="@dimen/left"
+            android:layout_marginTop="@dimen/editTop"
+            android:layout_marginRight="@dimen/right"
             android:background="@drawable/custom_edit"
             android:drawableStart="@drawable/pincode"
-            android:drawablePadding="4dp"
-            android:elevation="6dp"
+            android:drawablePadding="@dimen/padding"
+            android:elevation="@dimen/elevation"
             android:inputType="number"
             android:maxLength="6"
-            android:paddingStart="8dp"
+            android:paddingStart="@dimen/paddingStart"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/pinCode" />
 
@@ -131,7 +131,7 @@
             android:id="@+id/address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/btnTop"
             android:text="@string/address"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/pinCodeET" />
@@ -140,15 +140,15 @@
             android:id="@+id/addressET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="@dimen/left"
+            android:layout_marginTop="@dimen/editTop"
+            android:layout_marginRight="@dimen/right"
             android:background="@drawable/custom_edit"
             android:drawableStart="@drawable/address"
-            android:drawablePadding="4dp"
-            android:elevation="6dp"
+            android:drawablePadding="@dimen/padding"
+            android:elevation="@dimen/elevation"
             android:inputType="textMultiLine"
-            android:paddingStart="8dp"
+            android:paddingStart="@dimen/paddingStart"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/address" />
 
@@ -156,7 +156,7 @@
             android:id="@+id/validate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/btnTop"
             android:text="@string/validate"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/addressET" />
@@ -166,9 +166,9 @@
             android:id="@+id/validUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="@dimen/left"
+            android:layout_marginTop="@dimen/tvTop"
+            android:layout_marginRight="@dimen/right"
             android:textColor="@color/black"
 
             app:layout_constraintTop_toBottomOf="@+id/userNameTV" />
@@ -177,9 +177,9 @@
             android:id="@+id/validEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="@dimen/left"
+            android:layout_marginTop="@dimen/tvTop"
+            android:layout_marginRight="@dimen/right"
             android:textColor="@color/black"
 
             app:layout_constraintTop_toBottomOf="@+id/email" />
@@ -189,9 +189,9 @@
             android:id="@+id/validPhoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="@dimen/left"
+            android:layout_marginTop="@dimen/tvTop"
+            android:layout_marginRight="@dimen/right"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
 
@@ -200,9 +200,9 @@
             android:id="@+id/validPinCode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="@dimen/left"
+            android:layout_marginTop="@dimen/tvTop"
+            android:layout_marginRight="@dimen/right"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/pinCode" />
 
@@ -210,9 +210,9 @@
             android:id="@+id/validAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="@dimen/left"
+            android:layout_marginTop="@dimen/tvTop"
+            android:layout_marginRight="@dimen/right"
             android:textColor="@color/black"
 
             app:layout_constraintTop_toBottomOf="@+id/address" />
@@ -222,7 +222,7 @@
             android:id="@+id/confirm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/btnTop"
             android:text="@string/confirmData"
 
             app:layout_constraintTop_toBottomOf="@+id/validAddress" />
@@ -231,7 +231,7 @@
             android:id="@+id/cancel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/btnTop"
             android:text="@string/cancelData"
 
             app:layout_constraintTop_toBottomOf="@+id/confirm" />
@@ -243,9 +243,9 @@
             app:constraint_referenced_ids="emailET,userNameET,phoneNumberET,pinCodeET,addressET,validate" />
 
         <androidx.constraintlayout.widget.Group
+            android:id="@+id/textGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textGroup"
             app:constraint_referenced_ids="validUserName,validEmail,validPhoneNumber,validPinCode,validAddress,confirm,cancel" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
