@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/paddingInDetails"
+            android:text="@string/details"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:text="@string/userData"
+            android:id="@+id/userDetails"
+            android:layout_width="@dimen/width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/width"
+            android:background="@drawable/custom_edit"
+            android:elevation="@dimen/elevation"
+            android:inputType="textMultiLine"
+            android:paddingStart="@dimen/paddingInDetails"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/details"
+            tools:layout_editor_absoluteX="68dp" />
+
+    </LinearLayout>
+</ScrollView>

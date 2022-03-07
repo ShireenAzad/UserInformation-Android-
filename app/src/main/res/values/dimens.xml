@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="headingTop">40dp</dimen>
+    <dimen name="width">300dp</dimen>
+    <dimen name="elevation">6dp</dimen>
+    <dimen name="padding">4dp</dimen>
+    <dimen name="paddingInDetails">10dp</dimen>
+    <dimen name="paddingStart">4dp</dimen>
+    <dimen name="btnTop">20dp</dimen>
+    <dimen name="editTop">32dp</dimen>
+    <dimen name="tvTop">5dp</dimen>
+    <dimen name="left">15dp</dimen>
+    <dimen name="top">32dp</dimen>
+    <dimen name="right">10dp</dimen>
+
+</resources>
