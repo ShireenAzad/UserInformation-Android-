@@ -2,7 +2,6 @@ package com.example.userinfo
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import io.mockk.impl.annotations.MockK
-import org.junit.Assert.assertThrows
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Rule
@@ -10,7 +9,6 @@ import org.junit.Test
 import org.junit.rules.TestRule
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
-import org.robolectric.RuntimeEnvironment
 
 
 @RunWith(JUnit4::class)
@@ -36,17 +34,17 @@ class MainActivityTest {
     @Test
     fun isEmailValid() {
 
-        assertTrue(validations.emailValidation(mainActivity,"shireen@gmail.com","Email should have @ and .com or co.in"))
+        assertTrue(validations.emailValidation(mainActivity,"shireen@gmail.com"))
     }
 
     @Test
     fun isPhoneNumberValid() {
-        assertTrue(validations.phoneNumberValidation(mainActivity,"8790103730","Phone number ( should be only length of 10)"))
+        assertTrue(validations.phoneNumberValidation(mainActivity,"8790103730"))
     }
 
     @Test
     fun isPinCodeValid() {
-        assertTrue(validations.pinCodeValidation(mainActivity,"516004","Pin code ( should be only length of 6) "))
+        assertTrue(validations.pinCodeValidation(mainActivity,"516004"))
     }
     @Test
     fun isAllFieldsEntered() {
@@ -56,7 +54,7 @@ class MainActivityTest {
                 "banu@gmail.com",
                 "8790103730",
                 "516004",
-                "1/1534-1,yerramukka palli,kadapa","Every field is mandatory"
+                "1/1534-1,yerramukka palli,kadapa"
             )
         )
     }
