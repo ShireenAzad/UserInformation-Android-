@@ -36,7 +36,7 @@ class MainActivity() : AppCompatActivity() {
                 }
                 binding.cancel.setOnClickListener {
                     binding.editGroup.visibility = View.VISIBLE
-                    binding.editGroup.visibility = View.INVISIBLE
+                    binding.textGroup.visibility = View.INVISIBLE
                 }
             }
 
@@ -68,19 +68,12 @@ class MainActivity() : AppCompatActivity() {
         }
         binding.cancel.setOnClickListener {
             binding.editGroup.visibility = View.VISIBLE
-            binding.editGroup.visibility = View.INVISIBLE
+            binding.textGroup.visibility = View.INVISIBLE
         }
-
         super.onRestoreInstanceState(savedInstanceState)
     }
 
-    fun dataPassingFromActivityToActivityOnConfirm(
-        userName: String,
-        email: String,
-        phone: String,
-        pinCode: String,
-        address: String
-    ) {
+    fun dataPassingFromActivityToActivityOnConfirm(userName: String,email: String, phone: String, pinCode: String, address: String) {
         val intent = Intent(this, DetailsActivity::class.java)
         val user = User(userName, email, phone, pinCode, address)
         intent.putExtra("user", user)
@@ -89,10 +82,10 @@ class MainActivity() : AppCompatActivity() {
 
     fun validatingForm(userName: String, email: String, phone: String, pinCode: String, address: String): Boolean {
         val validations = Validations()
-        val fieldsValidationToCheckAllFieldsAreEntered = validations.fieldsValidationToCheckAllFieldsAreEntered(this, userName, email, phone, pinCode, address, "Every field is mandatory")
-        val emailValidation = validations.emailValidation(this, email, "Email should have @ and .com or co.in")
-        val phoneNumberValidation = validations.phoneNumberValidation(this, phone, "Phone number ( should be only length of 10)")
-        val pinCodeValidation = validations.pinCodeValidation(this, pinCode, "Pin code ( should be only length of 6) ")
+        val fieldsValidationToCheckAllFieldsAreEntered = validations.fieldsValidationToCheckAllFieldsAreEntered( this,userName, email, phone, pinCode, address)
+        val emailValidation = validations.emailValidation( this,email)
+        val phoneNumberValidation = validations.phoneNumberValidation(this, phone)
+        val pinCodeValidation = validations.pinCodeValidation( this,pinCode)
         val validationResult = fieldsValidationToCheckAllFieldsAreEntered && emailValidation && phoneNumberValidation && pinCodeValidation
         return validationResult
 

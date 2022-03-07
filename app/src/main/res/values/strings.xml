@@ -4,6 +4,10 @@
     <string name="user_name_text_view">User Name</string>
     <string name="email_text_view">Email</string>
     <string name="phone_number">Phone Number</string>
+    <string name="eachFieldToast">Every field is mandatory</string>
+    <string name="emailToast">Email should have @ and .com or co.in</string>
+    <string name="phoneNumberToast">Phone number ( should be only length of 10)</string>
+    <string name="pinCodeToast">Pin code ( should be only length of 6)</string>
     <string name="pin_code">Pin Code</string>
     <string name="address">Address</string>
     <string name="validate">Validate</string>

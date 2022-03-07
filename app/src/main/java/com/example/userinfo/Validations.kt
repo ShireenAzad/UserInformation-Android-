@@ -4,17 +4,17 @@ import android.content.Context
 import android.widget.Toast
 
 
-class Validations {
+class Validations() {
     fun fieldsValidationToCheckAllFieldsAreEntered(
         mContext: Context?,
         userName: String,
         email: String,
         phone: String,
         pinCode: String,
-        address: String,message: String?
+        address: String
     ): Boolean {
         if ((userName.isEmpty()) || (email.isEmpty()) || (phone.isEmpty()) || (pinCode.isEmpty()) || (address.isEmpty())) {
-            Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
+            Toast.makeText(mContext, R.string.eachFieldToast, Toast.LENGTH_SHORT).show()
             return false
 
         } else {
@@ -22,29 +22,30 @@ class Validations {
         }
     }
 
-    fun phoneNumberValidation(mContext: Context?, phone: String,message: String?): Boolean {
+    fun phoneNumberValidation(mContext: Context?, phone: String): Boolean {
         if (phone.length == 10) {
             return true
         } else {
-            Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
+            Toast.makeText(mContext, R.string.phoneNumberToast, Toast.LENGTH_SHORT).show()
             return false
         }
     }
 
-    fun pinCodeValidation(mContext: Context?, pinCode: String,message: String?): Boolean {
+    fun pinCodeValidation(mContext: Context?, pinCode: String): Boolean {
         if (pinCode.length == 6) {
             return true
         } else {
-            Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
+            Toast.makeText(mContext, R.string.pinCodeToast, Toast.LENGTH_SHORT).show()
             return false
         }
     }
-    fun emailValidation(mContext: Context?,email: String,message: String?): Boolean {
+
+    fun emailValidation(mContext: Context?, email: String): Boolean {
         if ((email.contains("@")) && ((email.endsWith(".com")) || (email.endsWith("co.in")))
         ) {
             return true
         } else {
-            Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
+            Toast.makeText(mContext, R.string.emailToast, Toast.LENGTH_SHORT).show()
             return false
         }
     }
