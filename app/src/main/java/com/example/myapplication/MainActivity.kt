@@ -2,6 +2,7 @@ package com.example.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+
 import androidx.fragment.app.FragmentTransaction
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.fragments.ConfirmDetailsFragment
@@ -9,10 +10,12 @@ import com.example.myapplication.fragments.EditFormFragment
 
 class MainActivity : AppCompatActivity(),Communicator {
     lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         val editFormFragment=EditFormFragment()
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container,editFormFragment).commit()
     }
