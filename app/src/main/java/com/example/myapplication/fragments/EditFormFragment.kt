@@ -25,6 +25,7 @@ class EditFormFragment : Fragment(R.layout.fragment_edit_form) {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
+
         val binding = FragmentEditFormBinding.inflate(inflater, container, false)
         editFormBinding = binding
 
@@ -39,13 +40,14 @@ class EditFormFragment : Fragment(R.layout.fragment_edit_form) {
            val userName=editFormBinding?.userNameET?.text.toString()
             val email=editFormBinding?.emailET?.text.toString()
             val phone=editFormBinding?.phoneNumberET?.text.toString()
-            val pinCode=editFormBinding?.pinCode?.text.toString()
+            val pinCode=editFormBinding?.pinCodeET?.text.toString()
             val address=editFormBinding?.addressET?.text.toString()
                 viewModel?.setUserName(userName)
                 viewModel?.setEmail(email)
                 viewModel?.setPhoneNumber(phone)
                 viewModel?.setPinCode(pinCode)
                 viewModel?.setAddress(address)
+            println("pinCode at Binding"+pinCode)
             if (validatingForm(userName, email, phone, pinCode, address)) {
                 val confirmDetailsFragment = ConfirmDetailsFragment()
                 val fragmentTransaction = activity?.supportFragmentManager?.beginTransaction()
@@ -71,9 +73,8 @@ class EditFormFragment : Fragment(R.layout.fragment_edit_form) {
         val fieldsValidationToCheckAllFieldsAreEntered = validations.fieldsValidationToCheckAllFieldsAreEntered( requireContext(),userName, email, phone, pinCode, address)
         val emailValidation = validations.emailValidation( requireContext(),email)
         val phoneNumberValidation = validations.phoneNumberValidation(requireContext(), phone)
+        println("pinCode at Validation"+pinCode)
         val pinCodeValidation = validations.pinCodeValidation( requireContext(),pinCode)
-        if(fieldsValidationToCheckAllFieldsAreEntered)
-            return fieldsValidationToCheckAllFieldsAreEntered
         val validationResult = fieldsValidationToCheckAllFieldsAreEntered && emailValidation && phoneNumberValidation && pinCodeValidation
         return validationResult
 

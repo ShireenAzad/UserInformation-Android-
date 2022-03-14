@@ -33,6 +33,8 @@ class Validations() {
     }
 
     fun pinCodeValidation(mContext: Context, pinCode: String): Boolean {
+        println(pinCode.length)
+        println(pinCode)
         if (pinCode.length == 6) {
             return true
         } else {

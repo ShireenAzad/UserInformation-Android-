@@ -10,6 +10,7 @@ import com.example.myapplication.*
 import com.example.myapplication.databinding.FragmentConfirmDetailsBinding
 
 class ConfirmDetailsFragment : Fragment(R.layout.fragment_confirm_details) {
+
     private lateinit var confirmDetailsBinding: FragmentConfirmDetailsBinding
 
     override fun onCreateView(
@@ -41,7 +42,7 @@ class ConfirmDetailsFragment : Fragment(R.layout.fragment_confirm_details) {
         ) { o -> confirmDetailsBinding.validPinCode.text = o!!.toString() }
         model.getAddress().observe(
             viewLifecycleOwner
-        ) { o -> confirmDetailsBinding.address.text = o!!.toString() }
+        ) { o -> confirmDetailsBinding.validAddress.text = o!!.toString() }
         confirmDetailsBinding.confirm.setOnClickListener {
             view
             val displayUserMessageFragment = DisplayUserMessageFragment()
